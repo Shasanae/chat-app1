@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-chatapp
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 19981999
+      MYSQL_DATABASE: chat_app
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  springboot:
+    build: .
+    container_name: springboot-chat-app2
+    ports:
+      - "8180:8180"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/chat_app
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: 19981999
+
+volumes:
+  mysql_data:
