@@ -19,6 +19,8 @@ target/
 *.iml
 *.ipr
 *.properties
+.env
+generatorMyBatis.xml
 
 ### NetBeans ###
 /nbproject/private/
