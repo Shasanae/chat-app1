@@ -21,7 +21,7 @@ import java.util.Date;
 @RequiredArgsConstructor
 public class JwtService {
 
-    @Value("${jwt.signer_key}")
+	@Value("${JWT_SIGNER_KEY}")
     private String SIGNER_KEY;
 
     public String generateToken(User user) {
